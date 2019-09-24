@@ -1,0 +1,20 @@
+#! /bin/sh
+
+workdir=$PWD
+srcdir=$(readlink -f "$(dirname "$0")")
+image_name=1minutetip-in-container
+
+set -e
+
+if ! podman inspect "$image_name" 2>/dev/null >/dev/null; then
+(
+    set -x
+    cd "$srcdir" || exit 1
+    echo "building in $PWD"
+    docker build -t "$image_name" .
+)
+fi
+
+name=$(id -u -n)
+
+exec podman run -e USERNAME="$name" --rm -ti -v "$workdir:/workdier" "$image_name" /wrapper "$@"

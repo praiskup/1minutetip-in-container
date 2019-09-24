@@ -1,0 +1,13 @@
+[beaker-client]
+name=Beaker Client - Fedora$releasever
+# baseurl=https://download.eng.bos.redhat.com/beakerrepos/client/Fedora$releasever/
+baseurl=http://download.eng.bos.redhat.com/beakerrepos/client/Fedora29/
+enabled=1
+gpgcheck=0
+
+[qa-tools]
+name=QA Tools Incubator
+baseurl=http://liver.brq.redhat.com/repo/
+enabled=1
+gpgcheck=0
+
