@@ -17,4 +17,12 @@ fi
 
 name=$(id -u -n)
 
-exec podman run -e USERNAME="$name" --rm -ti -v "$workdir:/workdier" "$image_name" /wrapper "$@"
+conf_dir=$HOME/.1minutetip
+
+mkdir -p "$conf_dir"
+chcon -R -t svirt_sandbox_file_t "$conf_dir"
+
+exec podman run -e USERNAME="$name" --rm -ti \
+    -e HOME=/confdir \
+    -v "$conf_dir:/confdir/.1minutetip" \
+    "$image_name" 1minutetip "$@"

@@ -1,9 +1,0 @@
-#! /bin/sh
-
-set -x
-
-mkdir -p "$HOME/.1minutetip"
-
-echo "CONF_USER=\"$USERNAME\"" > "$HOME"/.1minutetip/config
-
-exec 1minutetip "$@"
