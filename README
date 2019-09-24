@@ -1,0 +1,14 @@
+Run 1minutetip in locally prepared podman container
+===================================================
+
+WARNING WARNING WARNING: consult what this script does before executing it,
+there's no warranty!
+
+How to use
+----------
+
+$ git clone this_repo
+$ ln -s ./this_repo/1minutetip ~/bin/1minutetip
+$ 1minutetip rawhide
+...
+
